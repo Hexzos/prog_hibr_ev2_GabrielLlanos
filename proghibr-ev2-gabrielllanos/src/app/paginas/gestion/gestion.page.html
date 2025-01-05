@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Gestión de citas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" />
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <app-cita-form (onCreate)="onCreateCitas($event)"></app-cita-form>
+  
+  <app-cita-list [citas]="listaCitas" (onDelete)="onDeleteCitas($event)"></app-cita-list>
+  
+</ion-content>

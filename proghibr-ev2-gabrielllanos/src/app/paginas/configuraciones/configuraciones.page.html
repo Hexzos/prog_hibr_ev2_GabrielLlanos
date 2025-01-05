@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Configuraciones</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" />
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"> 
+  <ion-item> 
+    <ion-label>Permitir Eliminar Citas</ion-label> 
+    <ion-toggle slot="end" [(ngModel)]="activarSwitch" (ionChange)="ionChange($event)">
+   </ion-toggle> 
+  </ion-item>

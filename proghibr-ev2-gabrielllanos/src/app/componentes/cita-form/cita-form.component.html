@@ -1,0 +1,55 @@
+<ion-card color="light">
+  <ion-card-content>
+    <ion-title class="ionTitulo" size="medium">
+      Crea una nueva cita
+    </ion-title>
+  
+      <ion-item lines="none">
+        <ion-input 
+          label="Cita"
+          [(ngModel)]="citaStr" 
+          required
+          minlength="5"
+          #citaInput="ngModel"
+          placeholder="Introduzca una cita" 
+          [ngModelOptions]="{standalone: true}"/>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input 
+          label="Autor"
+          [(ngModel)]="autorStr"
+          required
+          minlength="2"
+          #autorInput="ngModel" 
+          placeholder="Introduzca el autor de la cita" 
+          [ngModelOptions]="{standalone: true}"/>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-button 
+          fill="clear" 
+          color="primary"
+          expand="block"
+          (click)="onClick()" 
+          [disabled]="!citaInput.valid || !autorInput.valid"
+          aria-label="Botón para ingresar una cita o frase a la lista">
+          AGREGAR
+          <ion-icon slot="end" name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <ion-item lines="none" *ngIf="!citaInput.valid && !citaInput.pristine">
+        <ion-text color="danger">
+          Escriba una cita de 5 o más letras
+        </ion-text>
+      </ion-item>
+
+      <ion-item lines="none" *ngIf="!autorInput.valid && !autorInput.pristine">
+        <ion-text color="danger">
+          Escriba un autor de 2 o más letras
+        </ion-text>
+      </ion-item>
+  
+  </ion-card-content>
+</ion-card>
